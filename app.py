@@ -1,21 +1,7 @@
-from dash import Dash, dcc, html, page_container, page_registry
+from dash import Dash, dcc, html, page_container, page_registry, callback, Input, Output, State
 from dash_extensions.pages import setup_page_components
-
-from pages.components import NAVBAR_ID
-
-# app = Dash(__name__, use_pages=True)
-# links = [html.Div(dcc.Link(p["name"], href=p["path"])) for p in page_registry.values()]
-# app.layout = html.Div(
-#     [
-#         page_container,  # page layout is rendered here
-#         setup_page_components(),  # page components are rendered here
-#         html.Div(links, id=NAVBAR_ID),  # simple navigation bar
-#     ]
-# )
-
-
 import dash_mantine_components as dmc
-from dash import Dash, Input, Output, State, callback
+
 
 app = Dash(__name__, use_pages=True)
 
@@ -34,6 +20,7 @@ layout = dmc.AppShell(
                 px="md",
             )
         ),
+
         dmc.AppShellNavbar(
             id="navbar",
             children=[
@@ -42,6 +29,7 @@ layout = dmc.AppShell(
             ],
             p="md",
         ),
+
         dmc.AppShellMain(html.Div([page_container, setup_page_components()])),
     ],
     header={"height": 60},
