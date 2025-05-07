@@ -28,7 +28,6 @@ grid = dag.AgGrid(
     id="get-started-example-basic",
     rowData=df_grid.to_dict("records"),
     columnDefs=columnDefs,
-    persistence=True,
-    persisted_props=['rowData'],
-    persistence_type='local'
+    persistence=False,
+    # persistence_type='local'
 )
